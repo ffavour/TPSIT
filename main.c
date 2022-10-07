@@ -23,10 +23,15 @@ typedef struct{
     float globalSales;
 }Videogioco;
 
+
 int main()
 {
-    //videogioco v[NGIOCHI];
+    //Videogioco a[NGIOCHI];
+    //Videogioco *v = a;
     Videogioco *v;
+    //a = (int*)malloc(n * sizeof(int) );
+    v = (Videogioco*)malloc(NGIOCHI * sizeof (Videogioco));
+
     char riga[DIM];
 
     FILE *fp;
