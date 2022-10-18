@@ -41,7 +41,7 @@ void letturaDaFile(Persone *p, char* riga){
             (*(p + k)).n.mese = atoi(strtok(NULL, ","));
             (*(p + k)).n.giorno = atoi(strtok(NULL, ","));
 
-            printf("\n %s %s %d %d %d\n", (*(p + k)).cognome, (*(p + k)).nome, (*(p + k)).n.anno,
+            printf("\ncognome: %s\nnome: %s\ndata di nascita: %d-%d-%d\n", (*(p + k)).cognome, (*(p + k)).nome, (*(p + k)).n.anno,
                    (*(p + k)).n.mese, (*(p + k)).n.giorno);
             k++;
         }
@@ -49,36 +49,42 @@ void letturaDaFile(Persone *p, char* riga){
 
 }
 
-void bubbleSort(int *v, int dim){
-    int temp;
+void scambio(Persone *x, Persone *y){
+    Persone temp;
 
-    for(int k = 0; k < dim; k++){
-        for(int j = k + 1; j < dim; j++){
-            if(*(v + k) > *(v + j)){
-                temp = *(v + k);
-                *(v + k) = *(v + j);
-                *(v + j) = temp;
-            }
-        }
-
-    }
+    *x = temp;
+    *x = *y;
+    *y = temp;
 }
 
 void bubbleSort(Persone *p, int dim){
-    char* nomeTemp;
-    char* cognomeTemp;
-    int giornoTemp;
-    int meseTemp;
-    int annoTemp;
+
+    for(int k = 0; k < dim; k++){
+        for(int j = k + 1; j < dim; j++){
+            if((p + k)->n.anno < (p + j)->n.anno){
+                scambio((p + k), (p + j));
+            }
+        }
+    }
+}
 
 
+void visualizza(Persone *p, int dim){
+    for(int k = 0; k < dim; k++){
+        printf("\nnome: %s \ncognome: %s \ndata di nascita: %d-%d-%d\n\n", (*(p + k)).cognome, (*(p + k)).nome, (*(p + k)).n.anno,
+               (*(p + k)).n.mese, (*(p + k)).n.giorno);
+    }
 }
 
 int main() {
-    Persone *p;
+    //Persone *p;
+    Persone p[DIM];
     char riga[LUNG];
 
-    letturaDaFile(p, riga);
+    letturaDaFile(&p, &riga);
+    bubbleSort(&p, DIM);
+    visualizza(&p, DIM);
+    //bubbleSort(&p, DIM);
 
     return 0;
 }
