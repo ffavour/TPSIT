@@ -9,7 +9,6 @@
  */
 
 #define LUNG 1024 //max caratteri per riga
-#define DIM 10 //max persone
 
 typedef struct {
     char* cognome;
