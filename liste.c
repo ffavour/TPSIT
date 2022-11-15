@@ -1,44 +1,71 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+/*crea  una  lista e la  stampa*/
 
-typedef struct node{
-    char* name;
-    struct node* next;  //con n minuscola pk la definizione di Node è nella riga successiva
-}Node;
+//osasere favour
+
+
+#include  <stdio.h>
+#include  <stdlib.h>
+
+typedef struct node {
+    int valore;
+    struct node *next;
+} Node;
+
+void stampa(Node *lista){
+    Node *l;
+    l = lista;  //l è una variabile di appoggio
+    printf("numeri  inseriti: \n");
+    while (l != NULL) {
+        printf("%d - %p \n", l->valore, l->next);
+        l = l->next;  //al puntatore viene assegnato valore di l->next, se è null finisce il ciclo
+    }
+    printf("\n");
+}
+int lunghezza(Node *lista){
+    int cont;
+    Node *l;
+    l = lista;
+    while (l != NULL){
+        l = l->next;
+        cont++;
+    }
+
+    return cont;
+}
 
 int main() {
-    Node* lista;
-    Node *temp;
+    int n;
+    int contN = 0;
+    Node *lista;
+    Node *l;
+    lista = NULL;
 
-    lista = (Node*)malloc(sizeof(Node));
-    temp = (Node*)malloc(sizeof(Node));
+    do {
+        printf("Inserisci  un  naturale o  -1 per  terminare\n");
+        scanf("%d", &n);
 
-    printf("inserisci il nome(1): ");
-    fflush(stdin);
-    scanf("%s", lista->name);
-    printf("nome1: %s", lista->name);
-    lista[0].next = NULL;
+        if (n >= 0) {
+            if (lista == NULL) /*  prima  iterazione  */
+            {
+                lista = (Node *) malloc(sizeof(Node));
+                l = lista; //puntatore d'appogggio l che punta a lista
+            } else /*  iterazioni  successive  */
+            {
+                l->next = (Node *) malloc(sizeof(Node));
+                l = l->next;
+            }
+            l->valore = n;
+            l->next = NULL;
+        }
+    } while (n >= 0);
 
-    printf("\ninserisci il nome(2): ");
-    fflush(stdin);
-    scanf("%s", temp->name);
-    printf("nome2: %s ", temp->name);
-    temp->next = NULL;
-    lista->next = temp;  //operazione di link, concateniamo le strutture
+    stampa(lista);
 
-    printf("\ninserisci il nome(3): ");
-    fflush(stdin);
-    scanf("%s", temp->name);
-    printf("nome3: %s ", temp->name);
-    temp->next = NULL;
+    //conta elementi in lista
+    contN = lunghezza(lista);
+    printf("\nci sono %d elementi", contN);
 
-    lista->next->next = temp;
 
-    printf("\nlista concatenata1: %s", lista->next->name);
-    printf("\nlista concatenata2: %s", lista->next->next->name);
 
-    free(lista);
-    free(temp);
     return 0;
 }
