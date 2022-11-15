@@ -1,7 +1,5 @@
 /*crea  una  lista e la  stampa*/
 
-//osasere favour
-
 
 #include  <stdio.h>
 #include  <stdlib.h>
@@ -22,7 +20,7 @@ void stampa(Node *lista){
     printf("\n");
 }
 int lunghezza(Node *lista){
-    int cont;
+    int cont = 0;
     Node *l;
     l = lista;
     while (l != NULL){
@@ -31,6 +29,21 @@ int lunghezza(Node *lista){
     }
 
     return cont;
+}
+
+void stampaRicorsiva(Node *l){
+    printf("%d - %p \n", l->valore, l->next);
+    if(l->next != NULL){
+        stampaRicorsiva(l->next);
+    }
+}
+
+int lunghezzaRicorsiva(Node *l){
+    if(l != NULL){
+        return lunghezzaRicorsiva(l->next) + 1;
+    } else{
+        return 0;
+    }
 }
 
 int main() {
