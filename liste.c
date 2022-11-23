@@ -82,7 +82,7 @@ int main() {
         }
     } while (n >= 0);
 
-    insertHead(lista, 5);
+    insertHead(&lista, 5);
     stampa(lista);
 
 
