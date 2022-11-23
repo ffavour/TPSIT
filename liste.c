@@ -46,6 +46,16 @@ int lunghezzaRicorsiva(Node *l){
     }
 }
 
+void insertHead(Node **head, int newValore){
+    Node *newTesta = (Node *) malloc(sizeof(Node));
+
+    newTesta->valore = newValore;  //carico nuovo valore new node nuovo
+    newTesta->next = (*head);      //il next punta alla testa attuale
+    (*head) = newTesta;            //assegno la nuova testa
+}
+
+
+
 int main() {
     int n;
     int contN = 0;
@@ -72,7 +82,9 @@ int main() {
         }
     } while (n >= 0);
 
+    insertHead(lista, 5);
     stampa(lista);
+
 
     //conta elementi in lista
     contN = lunghezza(lista);
