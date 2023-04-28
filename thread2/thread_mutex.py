@@ -5,8 +5,6 @@
 # ho un contatore diviso tra 5 thread. Ogni thread prenderà il valore inziale
 # del contatore e andrà a sommare il tempo proprio tempo di lavoro
 #####################################
-
-
 from time import sleep
 from threading import Thread, Lock
 import random
