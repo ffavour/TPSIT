@@ -39,3 +39,4 @@ class ThreadContatore(Thread):
 for i in range(5):
     thr = ThreadContatore(i)
     thr.start()
+ 
