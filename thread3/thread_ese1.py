@@ -52,9 +52,9 @@ class Consumatore(Thread):
         global buffer
         global continua
         # while(1):
-        while (continua):
+        while continua:
             mutex.acquire()
-            if (buffer >= self.valoremin and buffer <= self.valoremax):
+            if buffer >= self.valoremin and buffer <= self.valoremax:
                 self.valore_raccolto += buffer
                 print(f"Thread {self.id}: consumato {buffer} ed ho un totale di {self.valore_raccolto}")
                 buffer = 0
