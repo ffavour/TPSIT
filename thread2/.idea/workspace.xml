@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d408e58-bce4-49d2-bcd8-1b4ff84f70c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../thread4/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thread4/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thread4/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thread4/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thread4/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thread4/.idea/thread4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thread4/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../thread4/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../thread3/thread_ese1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../thread3/thread_ese1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thread4/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../thread4/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +43,7 @@
       <workItem from="1682505398140" duration="544000" />
       <workItem from="1683107767419" duration="1650000" />
       <workItem from="1683714324330" duration="595000" />
+      <workItem from="1684004495111" duration="29000" />
     </task>
     <servers />
   </component>
