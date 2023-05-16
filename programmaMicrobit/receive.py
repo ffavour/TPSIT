@@ -32,7 +32,7 @@ class Read_Microbit(threading.Thread):
         
     def run(self):
         #serial config
-        port = "/dev/ttyACM0"
+        port = "COM5"
         s = serial.Serial(port)
         s.baudrate = 115200
         while self._running:
