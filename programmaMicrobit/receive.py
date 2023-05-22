@@ -5,38 +5,37 @@ import pygame as pg
 import threading, queue
 import time
 
-
-#pygame config
+# pygame config
 width = 1200
 height = 800
 screen = pg.display.set_mode((width, height))
 clock = pg.time.Clock()
 ball = pg.image.load("./intro_ball.gif")
 ballrect = ball.get_rect()
-ballrect.centerx = width//2
-ballrect.centery = height//2
-
+ballrect.centerx = width // 2
+ballrect.centery = height // 2
 
 black = 0, 0, 0
 dt = 1
 gamma = 0.05
 q = queue.Queue()
 
+
 class Read_Microbit(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         self._running = True
-      
+
     def terminate(self):
         self._running = False
-        
+
     def run(self):
-        #serial config
-        port = "COM5"
+        # serial config
+        port = "COM7"
         s = serial.Serial(port)
         s.baudrate = 115200
         while self._running:
-            data = s.readline().decode() 
+            data = s.readline().decode()
             acc = [float(x) for x in data[1:-3].split(",")]
             q.put(acc)
             time.sleep(0.01)
@@ -49,8 +48,8 @@ pg.init()
 speed = [0, 0]
 while running:
     acc = q.get()
-    speed[0] = (1.-gamma)*speed[0] + dt*acc[0]/1024.
-    speed[1] = (1.-gamma)*speed[1] + dt*acc[1]/1024.
+    speed[0] = (1. - gamma) * speed[0] + dt * acc[0] / 1024.
+    speed[1] = (1. - gamma) * speed[1] + dt * acc[1] / 1024.
     q.task_done()
     ballrect = ballrect.move(speed)
     if ballrect.left < 0 or ballrect.right > width:
@@ -65,6 +64,6 @@ while running:
         if event.type == pg.QUIT:
             running = False
             pg.quit()
-    
+
 rm.terminate()
 rm.join()
