@@ -39,7 +39,7 @@ class Parcheggio(Thread):
                 pieno = True
             elif self.auto[i].parcheggiata is True:
 
-            mutex.release()  # rilascio MUTEX
+                mutex.release()  # rilascio MUTEX
 
             i += 1
 
